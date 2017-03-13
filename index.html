@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RPS</title>
+</head>
+<body>
+<!-- <input id="rock" type="button" value="Rock"> -->
+<script type="text/javascript">
+	function getUserChoise(){
+  userInput = $('<input>').attr({
+    type: 'hidden',
+    id: 'rock',
+}).appendTo('button');
+  userInput = userInput.toLowerCase();
+  if (userInput === "rock" || userInput === "paper" || userInput === "scissors" || userInput === "bomb"){
+    return userInput;
+  }else{
+    console.log("Error UserInput choice");
+  }
+};
+function getComputerChoise(){
+  var number = ["rock","paper","scissors"];
+  i = Math.floor(Math.random()*number.length);
+  return number[i];
+  console.log("This is a " + number);
+}
+
+function determineWinner (userChoice, computerChoice){
+  if(userChoice === computerChoice){
+    return ("TIE");
+  }
+  
+  if (userChoice === 'scissors') {
+  if (computerChoice === 'rock') {
+    return 'The computer won!';
+  }else {
+    return ('You won!');
+  }
+}
+
+
+  if (userChoice === 'rock') {
+  if (computerChoice === 'scissors') {
+    return 'The computer won!';
+  }else {
+    return ('You won!');
+  }
+  }
+
+  if (userChoice === 'bomb') {
+  {
+    return ('You won!');
+  }
+  }
+}
+
+function playGame(){
+var userChoice = getUserChoise();
+var computerChoice = getComputerChoise();
+console.log(userChoice, computerChoice);
+  console.log(determineWinner (userChoice, computerChoice));
+}
+
+playGame();
+</script>
+</body>
+</html>
